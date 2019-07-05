@@ -1,0 +1,122 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node-browsers
+        environment:
+          # RAILS_ENV: test
+          # PG_TEST_HOST: ${PG_TEST_HOST}
+          # PG_TEST_PORT: ${PG_TEST_PORT}
+          # PG_TEST_DATABASE: ${PG_TEST_DATABASE}
+          # PG_TEST_USERNAME: ${PG_TEST_USERNAME}
+          # PG_TEST_PASSWORD: ${PG_TEST_PASSWORD}
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v2-gemfile-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v2-gemfile-{{ arch }}-{{ .Branch }}
+            - v2-gemfile-{{ arch }}-
+      - run:
+          name: Listing gems
+          command: gem list
+      - run:
+          name: install dependencies
+          command: bundle install
+      - save_cache:
+          key: v2-gemfile-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: Database setup
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
+      - run:
+          name: Debugging Capybara/Selenium
+          command: |
+            which chromedriver
+            yarn install
+            RAILS_ENV=test DISABLE_SPRING=1 ./bin/bundle exec rails webpacker:compile
+            
+
+      # run tests!
+      - run:
+          name: Run tests
+          command: |
+            mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            --format progress \
+                            $TEST_FILES
+      # Security analysis
+      #- run: bundle exec brakeman
+
+  deploy-dev:
+    machine:
+      enabled: true
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - add_ssh_keys
+
+      - run:
+          name: Testing deploy
+          command: echo 'Testing deploy'
+
+      # - run:
+      #     name: Ping to AWS EC2
+      #     command: ping ${SERVER_HOST_DEV} -c 5
+
+      #- run:
+      #    name: Add AWS EC2 To Known Hosts
+      #    command: ssh-keyscan -H ${SERVER_HOST_DEV} >> ~/.ssh/known_hosts
+      #- run:
+      #    name: AWS EC2 Deploy
+      #    command: |
+      #      ssh ${SSH_NAME}@${SERVER_HOST_DEV} "./deploy.sh"
+
+  
+  # deploy-prod:
+  #   machine:
+  #     enabled: true
+  #   working_directory: ~/repo
+  #   steps:
+  #     - checkout
+  #     - add_ssh_keys
+
+      # - run:
+      #     name: Ping to AWS EC2
+      #     command: ping ${SERVER_HOST_QA} -c 5
+
+  #     - run:
+  #         name: Add AWS EC2 To Known Hosts
+  #         command: ssh-keyscan -H ${SERVER_HOST_PROD} >> ~/.ssh/known_hosts
+  #     - run:
+  #         name: AWS EC2 Deploy
+  #         command: |
+  #           ssh ${SSH_NAME}@${SERVER_HOST_PROD} "./deploy.sh"
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy-dev:
+          requires:
+              - build
+          filters:
+            branches:
+              only: development
+      # - deploy-prod:
+      #     requires:
+      #         - build
+      #     filters:
+      #       branches:
+      #         only: master
