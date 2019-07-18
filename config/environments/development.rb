@@ -1,6 +1,35 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # begin lograge
+  config.lograge.enabled = true
+
+  config.lograge.keep_original_rails_log = true
+
+  config.lograge.logger = ActiveSupport::Logger.new "#{Rails.root}/log/lograge_#{Rails.env}.log"
+
+  config.lograge.formatter = Lograge::Formatters::Logstash.new
+
+  config.lograge.custom_payload do |controller|
+    # We don't need to log: auth_token, utf8 and "_" keys
+    # _method, action and controller are currently logged by lograge
+    [:_, :utf8, :authenticity_token, :_method, :action, :controller].each do |key|
+      controller.params.delete(key)
+    end
+
+    # Also, we better remove passwords from users params
+    if controller.params[:user]
+      controller.params[:user].delete(:password)
+      controller.params[:user].delete(:password_confirmation)
+    end
+    {
+      host2: controller.request.remote_ip,
+      params: controller.params,
+      user: controller.current_user.try(:email) || "anonymous"
+    }
+  end
+  # end lograge
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
