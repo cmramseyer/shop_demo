@@ -1,0 +1,4 @@
+<%= form_with model: @search, url: searches_path do |form| %>
+	<%= form.text_field :keywords %>
+	<%= form.submit "Search" %>
+<% end %>
