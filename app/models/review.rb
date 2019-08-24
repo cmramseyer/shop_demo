@@ -1,8 +1,8 @@
 require 'elasticsearch/model'
 
-class Product < ApplicationRecord
-  belongs_to :category
-  has_many :reviews
+class Review < ApplicationRecord
+  belongs_to :user
+  belongs_to :product
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing
@@ -50,19 +50,21 @@ class Product < ApplicationRecord
       }
     }, index: { number_of_shards: 1 } do
     mapping dynamic: false do
-      indexes :product_name, analyzer: 'custom_english', type: :text
-      indexes :product_description, analyzer: 'custom_english', type: :text
-      indexes :category do
-        indexes :name, analyzer: 'custom_english', type: :text
-      end
+      indexes :review_title, analyzer: 'custom_english', type: :text
+      indexes :review_content, analyzer: 'custom_english', type: :text
+      indexes :review_user, analyzer: 'custom_english', type: :text
+      indexes :review_product, analyzer: 'custom_english', type: :text
+      indexes :review_product_category, analyzer: 'custom_english', type: :text
     end
   end
 
   def as_indexed_json(options={})
     {
-      product_name: name,
-      product_description: description,
-      category_name: category.try(:name)
+      review_title: title,
+      review_content: content,
+      review_user: user.try(:email),
+      review_product: product.try(:name),
+      review_product_category: product.try(:category).try(:name)
     }
 
   end
