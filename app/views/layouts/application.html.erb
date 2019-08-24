@@ -12,6 +12,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= render partial: '/layouts/search_form', locals: { search: Search.new } %>
     <%= yield %>
   </body>
 </html>
