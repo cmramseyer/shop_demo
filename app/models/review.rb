@@ -8,6 +8,8 @@ class Review < ApplicationRecord
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
 
+  delegate :name, :category_name, to: :product, prefix: true
+
   after_commit do
     __elasticsearch__.index_document
   end

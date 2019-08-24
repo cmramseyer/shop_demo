@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :searches, only: [:create]
   resources :results, only: [:index]
+  resources :products
+  resources :reviews
 
   devise_for :users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
