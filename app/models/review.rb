@@ -68,6 +68,9 @@ class Review < ApplicationRecord
       review_product: product.try(:name),
       review_product_category: product.try(:category).try(:name)
     }
+  end
 
+  def content_overview
+    content.truncate_words(20)
   end
 end
