@@ -46,6 +46,8 @@ gem 'bonsai-elasticsearch-rails', '~> 7'
 
 gem 'httparty'
 
+gem 'fake_credit_card_api_gem', path: '/home/carlos/proyectos/fake_credit_card_api_gem'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
