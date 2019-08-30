@@ -34,7 +34,7 @@ class Review < ApplicationRecord
         },
         my_synonyms: {
           type: "synonym",
-          synonyms_path: "shop_synonyms.txt"
+          synonyms: []
         }
       },
       analyzer: {

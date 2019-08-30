@@ -42,6 +42,8 @@ gem 'logstash-event'
 gem 'elasticsearch-rails', '~> 7.0.0.pre'
 gem 'elasticsearch-model', '~> 7.0.0.pre'
 
+gem 'bonsai-elasticsearch-rails', '~> 7'
+
 gem 'httparty'
 
 
