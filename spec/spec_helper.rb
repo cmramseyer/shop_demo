@@ -55,7 +55,6 @@ RSpec.configure do |config|
   config.after :suite do
     Elasticsearch::Extensions::Test::Cluster.stop(port: 9250) if Elasticsearch::Extensions::Test::Cluster.running?
   end
-end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
