@@ -1,0 +1,11 @@
+review_1:
+  title: 'Sony Last Technology Products'
+  content: 'The best television in the mid-range category is the Sony X900F. It has an impressive picture quality and can deliver a great dark room performance thanks to the high native contrast ratio, and has full array local dimming support. It can get very bright, suitable for a bright room, has a wide color gamut, and can display vivid HDR content full of saturated colors and bright highlights. It has an excellent motion handling, and fast-moving content has only a small blur trail thanks to the fast response time. Unfortunately, just like most VA panel TVs, it has poor viewing angles and the image deteriorates when viewed from the side. The input lag is low enough for most casual gamers, but not low enough for competitive gaming. Also, it doesn't have any of the advanced features like FreeSync variable refresh rate support found on other modern TVs like the Samsung NU8000. Overall, this is a great TV with an impressive performance in almost any use.'
+  product: product_1
+  user: admin_user
+
+review_2:
+  title: 'The best LG Monitor for gaming'
+  content: 'The LG 27UK650-W is a very good 27-inch IPS LCD monitor with HDR support, low input lag for gaming and great SDR peak brightness. It has a very good picture quality, wide viewing angles and a great resolution that will display every little detail. Although the monitor supports HDR, you will not benefit much from using it in this mode. It is more suitable for average lit environments where it can handle reflections and glare well. In dark rooms, blacks appear gray.'
+  product: product_2
+  user: admin_user

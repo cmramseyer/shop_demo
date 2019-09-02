@@ -1,0 +1,11 @@
+product_1:
+  name: 'Sony X900F'
+  description: 'TV 49" LED 4K'
+  category: category_tv
+  price: 999.9
+
+product_2:
+  name: 'LG 27UK650-W'
+  description: '7-inch IPS LCD monitor with HDR support'
+  category: category_monitor
+  price: 3499
