@@ -46,7 +46,7 @@ gem 'bonsai-elasticsearch-rails', '~> 7'
 
 gem 'httparty'
 
-gem 'fake_credit_card_api_gem', path: '/home/carlos/proyectos/fake_credit_card_api_gem'
+gem 'fake_credit_card_api_gem', git: 'git@github.com:cmramseyer/fake_credit_card_api_gem.git'
 
 
 group :development, :test do
