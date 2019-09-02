@@ -48,9 +48,9 @@ jobs:
       - run:
           name: Elasticsearch setup
           command: |
-            bundle exec rake elastic:delete_index
-            bundle exec rake elastic:create_index
-            bundle exec rake elastic:import
+            bundle exec rake elastic:delete_index RAILS_ENV=test
+            bundle exec rake elastic:create_index RAILS_ENV=test
+            bundle exec rake elastic:import RAILS_ENV=test
       - run:
           name: Debugging Capybara/Selenium
           command: |
