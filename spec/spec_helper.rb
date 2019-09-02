@@ -44,6 +44,19 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  config.before :each, elasticsearch: true do
+    Elasticsearch::Extensions::Test::Cluster.start(port: 9250) unless Elasticsearch::Extensions::Test::Cluster.running?
+  end
+
+  config.after :each, elasticsearch: true do
+    Elasticsearch::Model.client.indices.delete index: '_all'
+  end
+
+  config.after :suite do
+    Elasticsearch::Extensions::Test::Cluster.stop(port: 9250) if Elasticsearch::Extensions::Test::Cluster.running?
+  end
+end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
