@@ -47,7 +47,7 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  es_params = { port: 9250, number_of_nodes: 1, network_host: '_local_', cluster_name: 'circleci-elasticsearch' }
+  es_params = { port: 9250, number_of_nodes: 1, network_host: '_local_', cluster_name: 'circleci-elasticsearch', command: '/usr/share/elasticsearch/bin/elasticsearch' }
 
   config.before :each, elasticsearch: true do
     Elasticsearch::Extensions::Test::Cluster.start(es_params) unless Elasticsearch::Extensions::Test::Cluster.running?
