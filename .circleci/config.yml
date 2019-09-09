@@ -54,6 +54,10 @@ jobs:
             cd /usr/share/elasticsearch/bin/ && ls -l
             cd /usr/share/elasticsearch/ && ls -l
             cd /usr/share/ && ls -l
+            cd /usr/local/ && ls -l
+            cd /etc/ && ls -l
+            cd /var/run/ && ls -l
+            cd /var/log/ && ls -l
             curl "localhost:9250/_nodes/settings?pretty=true"
       - run:
           name: Debugging Capybara/Selenium
