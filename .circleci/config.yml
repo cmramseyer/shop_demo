@@ -51,6 +51,7 @@ jobs:
             bundle exec rake elastic:create_index RAILS_ENV=test
             bundle exec rake elastic:import RAILS_ENV=test
             export PATH="/usr/share/elasticsearch/bin/:$PATH"
+            cd /usr/share/elasticsearch/bin/ && ls -l
             curl "localhost:9250/_nodes/settings?pretty=true"
       - run:
           name: Debugging Capybara/Selenium

@@ -50,7 +50,7 @@ RSpec.configure do |config|
   es_params = { port: 9250, number_of_nodes: 1, network_host: '_local_', cluster_name: 'circleci-elasticsearch', command: '/usr/share/elasticsearch/bin/elasticsearch' }
 
   config.before :each, elasticsearch: true do
-    Elasticsearch::Extensions::Test::Cluster.start(es_params) unless Elasticsearch::Extensions::Test::Cluster.running?
+    Elasticsearch::Extensions::Test::Cluster.start(es_params) unless Elasticsearch::Extensions::Test::Cluster.running?(es_params)
   end
 
   config.after :each, elasticsearch: true do
@@ -58,7 +58,7 @@ RSpec.configure do |config|
   end
 
   config.after :suite do
-    Elasticsearch::Extensions::Test::Cluster.stop(es_params) if Elasticsearch::Extensions::Test::Cluster.running?
+    Elasticsearch::Extensions::Test::Cluster.stop(es_params) if Elasticsearch::Extensions::Test::Cluster.running?(es_params)
   end
 
 # The settings below are suggested to provide a good initial experience
