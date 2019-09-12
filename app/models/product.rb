@@ -54,9 +54,7 @@ class Product < ApplicationRecord
     mapping dynamic: false do
       indexes :product_name, analyzer: 'custom_english', type: :text
       indexes :product_description, analyzer: 'custom_english', type: :text
-      indexes :category do
-        indexes :name, analyzer: 'custom_english', type: :text
-      end
+      indexes :category_name, type: :keyword
     end
   end
 

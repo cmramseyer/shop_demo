@@ -1,4 +1,10 @@
 <p> Results for: <%= @keywords %></p>
+
+<% @categories.each do |category| %>
+	<p><%= category[:key] %>: <%= category[:doc_count] %></p>
+<% end %>
+
+
 <table class="table">
 	<thead>
 		<tr>
