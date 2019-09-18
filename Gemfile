@@ -50,6 +50,7 @@ gem 'httparty'
 
 gem 'fake_credit_card_api_gem', git: 'git@github.com:cmramseyer/fake_credit_card_api_gem.git'
 
+gem 'sentry-raven'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

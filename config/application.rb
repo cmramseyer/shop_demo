@@ -8,6 +8,28 @@ Bundler.require(*Rails.groups)
 
 Dotenv::Railtie.load
 
+###############
+# Sentry config
+###############
+# If you have added items to Rails’ log filtering,
+# you can also make sure that those items are not sent to Sentry:
+
+# in your application.rb:
+# config.filter_parameters << :password
+
+# in an initializer, like sentry.rb
+# Raven.configure do |config|
+  # config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
+# end
+
+Raven.configure do |config|
+  config.dsn = ENV['SENTRY_DNS']
+end
+
+###################
+# End Sentry config
+###################
+
 module ShopDemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
