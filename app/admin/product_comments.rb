@@ -5,6 +5,9 @@ ActiveAdmin.register ProductComment do
     column :product
     column :user
     column :text
+    column "Alert?" do |product_comment|
+      product_comment.alert?
+    end
     actions
   end
 

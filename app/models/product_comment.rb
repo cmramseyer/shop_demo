@@ -62,4 +62,8 @@ class ProductComment < ApplicationRecord
     }
 
   end
+
+  def alert?
+    AlertWords.include_alert_word?(text)
+  end
 end
