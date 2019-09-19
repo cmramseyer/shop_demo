@@ -11,8 +11,15 @@ module Service
 
     def run
       ActiveRecord::Base.transaction do
-        return false unless check_amount
-        @purchase.finish!
+        check_amount
+        # change purchase status from pending to done
+        @purchase.done!
+        # updates the purchase with the card number and when was paid
+        @purchase.update_attributes(
+          credit_card_number: @number,
+          paid_at: Time.now
+          )
+        # update the credit card amount in the api
         update_credit_card_amount
       end
       true
@@ -25,7 +32,8 @@ module Service
 
     def check_amount
       @response = FakeCreditCardApiGem.check_amount(number: @number, code: @code, amount: @amount)
-      @response["message"] == "valid"
+      message = @response["message"]
+      raise StandardError.new message unless message == "valid"
     end
 
     def update_credit_card_amount

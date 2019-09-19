@@ -5,4 +5,8 @@
 
 <p><%= @purchase.purchase_status %></p>
 
-<%= render partial: 'credit_card_payment', locals: { purchase: @purchase, credit_cards: @credit_cards } %>
+<% if @purchase.done? %>
+	<%= render partial: 'payment_info', locals: { purchase: @purchase } %>
+<% else %>
+	<%= render partial: 'credit_card_payment', locals: { purchase: @purchase, credit_cards: @credit_cards } %>
+<% end %>

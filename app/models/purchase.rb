@@ -11,10 +11,4 @@ class Purchase < ApplicationRecord
     product.price * quantity
   end
 
-  def finish!
-    # do things
-    done!
-    # do more things
-  end
-
 end
