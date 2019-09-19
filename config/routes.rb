@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   resources :results, only: [:index]
   resources :products do
     resources :product_comments
+    resources :purchases
   end
   resources :reviews
+  resources :purchases do
+    resources :check_credit_card_amount
+  end
 
   devise_for :users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)

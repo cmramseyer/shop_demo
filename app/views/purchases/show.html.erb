@@ -1,0 +1,8 @@
+<h2><%= @purchase.user.email %></h2>
+<h6><%= @purchase.product.name %></h6>
+<p><%= @purchase.quantity %></p>
+<p><%= number_to_currency(@purchase.amount) %></p>
+
+<p><%= @purchase.purchase_status %></p>
+
+<%= render partial: 'credit_card_payment', locals: { purchase: @purchase, credit_cards: @credit_cards } %>

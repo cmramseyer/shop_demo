@@ -1,0 +1,30 @@
+<table>
+	<thead>
+		<tr>
+			<th>Number</th>
+			<th>Code</th>
+			<th>Current Amount</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% credit_cards.each do |credit_card| %>
+			<tr>
+				<td><%= credit_card["number"] %></td>
+				<td><%= credit_card["code"] %></td>
+				<td><%= credit_card["current_amount"] %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= form_with url: purchase_check_credit_card_amount_index_path(purchase), method: :get, remote: true do |form| %> 
+	<%= form.text_field :number %>
+	<%= form.text_field :code %>
+	<%= form.text_field :amount, value: number_to_currency(purchase.amount), readonly: true %>
+	<%= form.submit "Check" %>
+	<%= form.submit "Purchase" %>
+<% end %>
+
+<h4>Api Response</h4>
+<div id="check-credit-card-message"></div>
+
