@@ -3,6 +3,7 @@ require 'elasticsearch/model'
 class Product < ApplicationRecord
   belongs_to :category
   has_many :reviews
+  has_many :comments
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing

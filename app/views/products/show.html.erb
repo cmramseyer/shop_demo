@@ -1,3 +1,9 @@
 <h2><%= @product.name %></h2>
 <h6><%= @product.category_name %></h6>
 <p><%= @product.description %></p>
+<p><%= number_to_currency(@product.price) %></p>
+
+<h4>User Comments</h4>
+<%= render partial: 'product_comments', locals: { comments: @comments } %>
+<hr>
+<%= render partial: 'new_comment', locals: { product: @product } %>

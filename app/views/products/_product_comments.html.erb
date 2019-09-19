@@ -1,0 +1,7 @@
+<% if comments.empty? %>
+	<p>No comments yet</p>
+<% else %>
+	<% comments.each do |comment| %>
+		<%= render partial: 'product_comment', locals: {comment: comment} %>
+	<% end %>
+<% end %>
