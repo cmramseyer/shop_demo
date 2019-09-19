@@ -12,4 +12,18 @@ permit_params :title, :content, :user_id, :product_id
 #   permitted
 # end
 
+  index do
+    id_column
+    column :title
+    column :content
+    column :product
+    column :user
+    column "Alert?" do |review|
+      review.include_alert_word?
+    end
+    column :created_at
+    column :updated_at
+    actions
+  end
+
 end

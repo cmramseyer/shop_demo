@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  include AlertCheckeable
+
   include Elasticsearch::Model
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
@@ -72,5 +74,9 @@ class Review < ApplicationRecord
 
   def content_overview
     content.truncate_words(20)
+  end
+
+  def text_for_alert_check
+    content
   end
 end

@@ -2,6 +2,8 @@ class ProductComment < ApplicationRecord
   belongs_to :product
   belongs_to :user
 
+  include AlertCheckeable
+
   include Elasticsearch::Model
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
@@ -63,7 +65,8 @@ class ProductComment < ApplicationRecord
 
   end
 
-  def alert?
-    AlertWords.include_alert_word?(text)
+  def text_for_alert_check
+    text
   end
+
 end
