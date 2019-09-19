@@ -1,4 +1,4 @@
-ActiveAdmin.register Comment do
+ActiveAdmin.register ProductComment do
 
   index do
     id_column

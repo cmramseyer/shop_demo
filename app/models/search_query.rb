@@ -1,6 +1,6 @@
 class SearchQuery
 
-  MODELS_TO_SEARCH = [Product, Review, Comment]
+  MODELS_TO_SEARCH = [Product, Review, ProductComment]
 
   attr_reader :response, :records, :elastic, :aggregations
 

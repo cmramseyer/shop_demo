@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :searches, only: [:create]
   resources :results, only: [:index]
   resources :products do
-    resources :comments
+    resources :product_comments
   end
   resources :reviews
 

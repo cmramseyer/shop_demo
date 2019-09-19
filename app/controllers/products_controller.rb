@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def show
     @product = Product.find(product_params[:id])
-    @comments = @product.comments
+    @comments = @product.product_comments
   end
 
   private

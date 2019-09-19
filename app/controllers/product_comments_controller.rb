@@ -1,6 +1,6 @@
-class CommentsController < ApplicationController
+class ProductCommentsController < ApplicationController
   def create
-    @comment = Comment.new(
+    @comment = ProductComment.new(
       product_id: params[:product_id],
       user_id: current_user.id,
       text: comment_params[:text]
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:product_id, :text)
+    params.require(:product_comment).permit(:product_id, :text)
   end
 
 end
