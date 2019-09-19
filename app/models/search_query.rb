@@ -1,6 +1,6 @@
 class SearchQuery
 
-  MODELS_TO_SEARCH = [Product, Review]
+  MODELS_TO_SEARCH = [Product, Review, Comment]
 
   attr_reader :response, :records, :elastic, :aggregations
 
@@ -33,7 +33,7 @@ class SearchQuery
     {
       multi_match: {
         query: keywords,
-        fields: %w[product_name^2 product_description category_name review_title^2 review_content^2 review_user review_product^2 review_product_category],
+        fields: %w[product_name^2 product_description category_name review_title^2 review_content^2 review_user review_product^2 review_product_category, comment_user, comment_product_name, comment_text],
         fuzziness: 'auto'
       }
     }

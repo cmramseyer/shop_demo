@@ -5,8 +5,10 @@ class Searchable
       SearchableProduct.new(object)
     elsif object.class.name == "Review"
       SearchableReview.new(object)
+    elsif object.class.name == "Comment"
+      SearchableComment.new(object)
     else
-      raise StandardError.new "Product or Review expected"
+      raise StandardError.new "Product, Review or Comment expected"
     end
   end
 
