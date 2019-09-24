@@ -16,6 +16,7 @@ class CheckCreditCardAmountController < ApplicationController
         purchase: @purchase)
 
       if @service.run
+        @payment = @service.payment
         render 'purchase_ok'
       else
         @message = @service.exception.message

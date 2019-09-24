@@ -1,6 +1,6 @@
 module Service
   class FinishPurchase
-    attr_reader :exception, :purchase
+    attr_reader :exception, :purchase, :payment
 
     def initialize(number:, code:, amount:, purchase:)
       @number = number
@@ -20,7 +20,7 @@ module Service
           paid_at: Time.now
           )
         # update the credit card amount in the api
-        update_credit_card_amount
+        make_payment_in_the_credit_card
       end
       true
     rescue Exception => e
@@ -36,8 +36,8 @@ module Service
       raise StandardError.new message unless message == "valid"
     end
 
-    def update_credit_card_amount
-      #
+    def make_payment_in_the_credit_card
+      @payment = FakeCreditCardApiGem.make_a_payment(number: @number, code: @code, amount: @amount)
     end
 
   end

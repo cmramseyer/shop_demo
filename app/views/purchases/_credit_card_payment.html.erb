@@ -20,7 +20,7 @@
 <%= form_with url: purchase_check_credit_card_amount_index_path(purchase), method: :get, remote: true do |form| %> 
 	<%= form.text_field :number %>
 	<%= form.text_field :code %>
-	<%= form.text_field :amount, value: number_to_currency(purchase.amount), readonly: true %>
+	<%= form.text_field :amount, value: purchase.amount, readonly: true %>
 	<%= form.submit "Check" %>
 	<%= form.submit "Purchase" %>
 <% end %>
