@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:cmramseyer/fake_credit_card_api_gem.git
-  revision: f6a223300829664bee7dd80782a3743ba776e29c
+  revision: eb502b595b8f82f4d119a8eed1652faa557ed0dc
   specs:
     fake_credit_card_api_gem (0.1.0)
       httparty
