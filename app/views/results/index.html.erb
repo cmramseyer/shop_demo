@@ -1,13 +1,23 @@
 <p> Results for: <%= @keywords %></p>
 
 <h3>Categories</h3>
-<% @categories.each do |category| %>
-	<%= link_to "#{category[:key]}: #{category[:doc_count]}", results_path(search_id: @search.id, category_name: category[:key])  %>
+<% if @opts[:category_name] %>
+	<p>Filtered by <%= @opts[:category_name] %></p>
+	<%= link_to "Remove filter", results_path(search_id: @search.id, remove_category_name: true, keep: true) %>
+<% else %>
+	<% @categories.each do |category| %>
+		<%= link_to "#{category[:key]}: #{category[:doc_count]}", results_path(search_id: @search.id, category_name: category[:key], keep: true)  %>
+	<% end %>
 <% end %>
 
 <h3>Brands</h3>
-<% @brands.each do |brand| %>
-	<%= link_to "#{brand[:key]}: #{brand[:doc_count]}", results_path(search_id: @search.id, brand: brand[:key]) %>
+<% if @opts[:brand] %>
+	<p>Filtered by <%= @opts[:brand] %></p>
+	<%= link_to "Remove filter", results_path(search_id: @search.id, remove_brand: true, keep: true) %>
+<% else %>
+	<% @brands.each do |brand| %>
+		<%= link_to "#{brand[:key]}: #{brand[:doc_count]}", results_path(search_id: @search.id, brand: brand[:key], keep: true) %>
+	<% end %>
 <% end %>
 
 
