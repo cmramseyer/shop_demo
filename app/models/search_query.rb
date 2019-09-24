@@ -4,14 +4,17 @@ class SearchQuery
 
   attr_reader :response, :records, :elastic, :aggregations
 
-  def initialize(keywords)
-    @elastic = Elasticsearch::Model.search(search_query(keywords), MODELS_TO_SEARCH)
+  def initialize(keywords, opts = {})
+    @elastic = Elasticsearch::Model.search(search_query(keywords, opts), 
+      MODELS_TO_SEARCH)
     @response = @elastic.response
     @aggregations = @elastic.aggregations
     @records = @elastic.records
   end
 
-  def search_query(keywords)
+  def query(keywords, opts)
+    category_name = opts.fetch(:category_name, "")
+    brand = opts.fetch(:brand, "*")
     {
       query: {
         function_score: { 
@@ -21,10 +24,66 @@ class SearchQuery
             }
           }
         }
+      }
+      
+    }
+  end
+
+  def aggs
+    {
+        categories: {
+            terms: { field: "category_name" } 
+        },
+        brands: {
+            terms: { field: "brand" } 
+        }
+      }
+    
+  end
+
+  def filters
+    { 
+        bool: { 
+          must: { 
+            filter: { 
+              terms: { brand: "LG" }
+            }
+         }
+        }
+      }
+  end
+
+  def lala(opts)
+    return {} unless opts[:category_name] || opts[:brand]
+    
+    filter = { filter: [] }
+    opts.keys.each do |key|
+      next unless opts[key]
+      filter[:filter] << { term: { key => opts[key] } }
+    end
+    filter
+  end
+
+  def search_query(keywords, opts={})
+    
+    {
+      query: {
+        function_score: { 
+          query: {
+            bool: {
+              must: [multi_match(keywords)],
+              **lala(opts)
+            }
+
+          }
+        }
       },
       aggs: {
         categories: {
             terms: { field: "category_name" } 
+        },
+        brands: {
+            terms: { field: "brand" } 
         }
       }
     }
