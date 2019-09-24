@@ -56,6 +56,7 @@ class Product < ApplicationRecord
       indexes :product_name, analyzer: 'custom_english', type: :text
       indexes :product_description, analyzer: 'custom_english', type: :text
       indexes :category_name, type: :keyword
+      indexes :brand, type: :keyword
     end
   end
 
@@ -63,7 +64,8 @@ class Product < ApplicationRecord
     {
       product_name: name,
       product_description: description,
-      category_name: category.try(:name)
+      category_name: category.try(:name),
+      brand: brand
     }
 
   end
