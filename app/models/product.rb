@@ -17,46 +17,26 @@ class Product < ApplicationRecord
 
   settings analysis: {
       filter: {
-        english_stop: {
-          type: "stop",
-          stopwords: "_english_" 
-        },
-        english_keywords: {
-          type: "keyword_marker",
-          keywords: [] 
-        },
-        english_stemmer: {
-          type: "stemmer",
-          language: "english"
-        },
-        english_possessive_stemmer: {
-          type: "stemmer",
-          language: "possessive_english"
-        },
-        my_synonyms: {
-          type: "synonym",
-          synonyms: []
+        autocomplete_filter: {
+          type: "edge_ngram",
+          min_gram: 1,
+          max_gram: 20
         }
       },
       analyzer: {
-        custom_english: {
+        autocomplete: { 
+          type: "custom",
           tokenizer: "standard",
-          filter: [
-            "english_possessive_stemmer",
-            "lowercase",
-            "my_synonyms",
-            "english_stop",
-            "english_keywords",
-            "english_stemmer"
-          ]
+          filter: ["lowercase","autocomplete_filter"]
         }
       }
-    }, index: { number_of_shards: 1 } do
+    } do
     mapping dynamic: false do
-      indexes :product_name, analyzer: 'custom_english', type: :text
-      indexes :product_description, analyzer: 'custom_english', type: :text
+      indexes :product_name, analyzer: 'english', type: :text
+      indexes :product_description, analyzer: 'english', type: :text
       indexes :category_name, type: :keyword
       indexes :brand, type: :keyword
+      indexes :test, type: :text, analyzer: "autocomplete", search_analyzer: "standard"
     end
   end
 
@@ -65,7 +45,8 @@ class Product < ApplicationRecord
       product_name: name,
       product_description: description,
       category_name: category.try(:name),
-      brand: brand
+      brand: brand,
+      test: name
     }
 
   end

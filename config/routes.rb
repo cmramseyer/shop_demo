@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :check_credit_card_amount
   end
 
+  resources :suggestions, only: [:index]
+
   devise_for :users, ActiveAdmin::Devise.config
 	ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
