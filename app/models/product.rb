@@ -48,6 +48,5 @@ class Product < ApplicationRecord
       brand: brand,
       test: name
     }
-
   end
 end
