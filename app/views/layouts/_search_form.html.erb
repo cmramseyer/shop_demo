@@ -1,9 +1,7 @@
 <%= form_with model: search, url: searches_path do |form| %>
-	<%= form.text_field :keywords %>
+	<%= form.text_field :keywords, class: 'autocomplete' %>
 	<%= form.submit "Search" %>
 <% end %>
 
-<div id="suggestions">
-</div>
 
-<a class="lala">Testing</a>
+

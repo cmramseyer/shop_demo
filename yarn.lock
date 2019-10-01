@@ -741,6 +741,11 @@
     webpack-cli "^3.3.2"
     webpack-sources "^1.3.0"
 
+"@tarekraafat/autocomplete.js@^7.0.3":
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/@tarekraafat/autocomplete.js/-/autocomplete.js-7.0.3.tgz#f0f057263c0ad9721ce22c5f847fb57842c90ecf"
+  integrity sha512-ZqBNH9O+pkMB/PkrzHIuSg7oCEAhWPYRB8nLOlXARP5+eVeLG8BEn2n8iZCMdcCv1E+E1fjezvGFfiuyLjxUcQ==
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -3656,6 +3661,11 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jquery.autocomplete@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/jquery.autocomplete/-/jquery.autocomplete-1.2.0.tgz#c6476e85035cd7cedefeab04d8774477324d6e33"
+  integrity sha512-aoJC3KVrPpRGaZBUo9UxhwznYmQ0UuYd+FfjP9RAKmyB+1T3OLIjuQImT8pKX6eKpBt1z9JmD48GiD2Dx303bA==
 
 jquery@^3.4.1:
   version "3.4.1"
