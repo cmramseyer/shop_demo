@@ -4,6 +4,7 @@ namespace :elastic do
 
     Product.__elasticsearch__.delete_index! if Product.__elasticsearch__.index_exists?
     Review.__elasticsearch__.delete_index! if Review.__elasticsearch__.index_exists?
+    ProductComment.__elasticsearch__.delete_index! if ProductComment.__elasticsearch__.index_exists?
 
   end
 end

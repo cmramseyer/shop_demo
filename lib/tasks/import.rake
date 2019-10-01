@@ -4,6 +4,7 @@ namespace :elastic do
 
     Product.import
     Review.import
+    ProductComment.import
 
   end
 end
