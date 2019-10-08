@@ -1,3 +1,5 @@
+<h4>Available Credit Cards (from external API => <%= ENV['CREDIT_CARD_API_HOST'] %>:<%= ENV['CREDIT_CARD_API_PORT'] %>)</h4>
+
 <table class="table table-sm">
 	<thead class="thead-dark">
 		<tr>
@@ -34,10 +36,12 @@
 	    </div>
 	  </div>
 
+	  <div class="alert alert-info">Interact with the API to know if the selected credit card is working and has funds pressing the Check button. Press the Purchase button to perform the payment and complete the purchase process.</div>
+
 	<%= form.submit "Check", class: 'btn btn-primary' %>
 	<%= form.submit "Purchase", class: 'btn btn-success' %>
 <% end %>
 
-<h4>Api Response</h4>
+<h4 class="api-response-title">Api Response</h4>
 <textarea readonly id="check-credit-card-message" class="api-response-text" cols="100" rows="3"></textarea>
 

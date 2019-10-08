@@ -1,10 +1,10 @@
 <div class="card card-purchase">
 	<div class="card-header">
-		<p class="card-text"><%= purchase.user.email %> purchased <%= purchase.product.name %></p>
+		<p class="card-text"><strong><%= purchase.user.email %></strong> purchased <strong><%= purchase.product.name %></strong></p>
 	</div>
 	<div class="card-body">
-		<h5 class="card-title">Details:</h5>
-		<p class="card-text">Purchase Status: <%= purchase.purchase_status %></p>
+		<h5 class="card-title">Details</h5>
+		<p class="card-text">Purchase Status: <%= purchase.decorate.status_label %></p>
 		<p class="card-text">Quantity: <%= purchase.quantity %></p>
 		<p class="card-text">Total amount: <%= number_to_currency(purchase.amount) %></p>
 	</div>

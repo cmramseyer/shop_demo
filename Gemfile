@@ -52,6 +52,8 @@ gem 'fake_credit_card_api_gem', git: 'git@github.com:cmramseyer/fake_credit_card
 
 gem 'sentry-raven'
 
+gem 'draper'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
