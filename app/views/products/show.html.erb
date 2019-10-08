@@ -1,13 +1,26 @@
-<h2><%= @product.name %></h2>
-<h6><%= @product.category_name %></h6>
-<p><%= @product.description %></p>
-<p><%= number_to_currency(@product.price) %></p>
+<div class="row">
+	<div class="col-sm-12">
 
-<h4>User Comments</h4>
-<%= render partial: 'product_comments', locals: { comments: @comments } %>
-<hr>
-<%= render partial: 'new_comment', locals: { product: @product } %>
+		<h4 class="product-title">Description</h4>
 
-<h4>Purchase</h4>
-<%= render partial: 'product_purchase', locals: { product: @product } %>
+		<div class="card card-product">
+		  <div class="card-header">
+		  	<h4 class="card-title"><%= @product.name %></h4>
+		  </div>
+		  <div class="card-body">
+		  	<h6 class="card-title">Category: <%= @product.category_name %></h6>
+		    <p class="card-text"><%= @product.description %></p>
+		  </div>
+		  <div class="card-footer">Price: <%= number_to_currency(@product.price) %></div>
+		</div>
 
+
+		<h4 class="product-title">User Comments</h4>
+		<%= render partial: 'product_comments', locals: { comments: @comments } %>
+		<%= render partial: 'new_comment', locals: { product: @product } %>
+
+		<h4 class="product-title">Purchase</h4>
+		<%= render partial: 'product_purchase', locals: { product: @product } %>
+	</div>
+
+</div>

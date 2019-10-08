@@ -3,6 +3,6 @@
 	font-size: 1.5rem !important;
 }
 
-nav .navbar-nav li a{
+nav .navbar-nav li a.nav-link-sidebar{
 	color: #007bff !important;
 }

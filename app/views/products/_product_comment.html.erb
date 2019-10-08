@@ -1,5 +1,8 @@
-<hr>
-<h5><%= comment.user.email %></h6>
-<h6><%= comment.created_at %></p>
-<p><%= comment.text %></p>
-
+<div class="card card-product-comment">
+  <div class="card-header">
+    <i class="fa fa-user"></i> <%= comment.user.email %> | <%= comment.created_at.normal_format %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= comment.text %></p>
+  </div>
+</div>

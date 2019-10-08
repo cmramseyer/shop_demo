@@ -17,7 +17,7 @@ class SearchableReview
   end
 
   def overview
-    link_to @review.content_overview, review_path
+    @review.content_overview
   end
 
   def review_path

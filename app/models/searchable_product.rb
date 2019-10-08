@@ -17,7 +17,7 @@
   end
 
   def overview
-    link_to @product.description_overview, product_path
+    @product.description_overview
   end
 
   def product_path
