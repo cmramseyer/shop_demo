@@ -10,9 +10,17 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render partial: '/layouts/search_form', locals: { search: Search.new } %>
-    <%= yield %>
+    <div class="container">
+      <%= render partial: '/layouts/nav_bar' %>
+      <% if notice && notice.present? %>
+        <div class="alert alert-success text-center"><%= notice %></div>
+      <% end %>
+
+      <% if alert && alert.present? %>
+        <div class="alert alert-danger text-center"><%= alert %></div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

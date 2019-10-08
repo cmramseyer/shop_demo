@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :product_comments
+
+  def is_admin?
+    true
+  end
 end
