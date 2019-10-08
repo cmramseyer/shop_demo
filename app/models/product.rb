@@ -49,4 +49,8 @@ class Product < ApplicationRecord
       test: name
     }
   end
+
+  def description_overview
+    description.truncate_words(20)
+  end
 end
