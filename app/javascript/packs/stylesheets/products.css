@@ -22,3 +22,19 @@ h4.product-title {
 .card-purchase {
 	margin: 20px !important;
 }
+
+footer.footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 150px;
+  	line-height: 60px;
+}
+
+body {
+  padding-bottom: 150px; /* Margin bottom by footer height */
+}
+
+html {
+	position: relative;
+}
