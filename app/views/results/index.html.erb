@@ -1,28 +1,32 @@
 <div class="alert alert-primary text-center">Results for: <%= @keywords %></div>
 
-<%= render partial: '/results/sidebar', locals: { title: 'Categories', search: @search, objects: @categories, object_key: :category_name, opts: @opts} %>
+<div class="row">
+	<div class="col-sm-3">
+		<%= render partial: '/results/sidebar', locals: { title: 'Categories', search: @search, objects: @categories, object_key: :category_name, opts: @opts} %>
+		<%= render partial: '/results/sidebar', locals: { title: 'Brands', search: @search, objects: @brands, object_key: :brand, opts: @opts} %>
+	</div>
 
-<%= render partial: '/results/sidebar', locals: { title: 'Brands', search: @search, objects: @brands, object_key: :brand, opts: @opts} %>
 
-
-
-<table class="table">
-	<thead>
-		<tr>
-			<th>Type</th>
-			<th></th>
-			<th>Overview</th>
-			<th>Date</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @records.each do |record| %>
-			<tr>
-				<td><%= record.type %></td>
-				<td><%= record.title %></td>
-				<td><%= record.overview %></td>
-				<td><%= record.created_at %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+	<div class="col-sm-9">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th></th>
+					<th>Overview</th>
+					<th>Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @records.each do |record| %>
+					<tr>
+						<td><%= record.type %></td>
+						<td><%= record.title %></td>
+						<td><%= record.overview %></td>
+						<td><%= record.created_at %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

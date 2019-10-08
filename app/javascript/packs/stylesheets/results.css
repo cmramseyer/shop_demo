@@ -2,3 +2,7 @@
 	color: black !important;
 	font-size: 1.5rem !important;
 }
+
+nav .navbar-nav li a{
+	color: #007bff !important;
+}
