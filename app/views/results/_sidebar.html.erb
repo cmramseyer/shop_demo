@@ -1,0 +1,21 @@
+<div class="col-sm-3">
+	<nav class="vertical-navbar navbar navbar-light bg-light">
+		<span class="navbar-text navbar-text-sidebar"><%= title %></span>
+	  <div class="navbar-collapse mr-auto">
+	    <ul class="navbar-nav">
+	    	<% if opts[object_key] %>
+				  <span class="navbar-text">Filtered by <%= opts[object_key] %></span>
+				  <li class="nav-item">
+				  	<%= link_to "Remove filter <i class='icon-remove'></>".html_safe, results_path(search_id: search.id, "remove_#{object_key}" => true, keep: true), class: 'nav-link' %>
+				  </li>
+				<% else %>
+		    	<% objects.each do |object| %>
+			      <li class="nav-item">
+			        <%= link_to "#{object[:key]}: #{object[:doc_count]}", results_path(search_id: search.id, object_key => object[:key], keep: true), class: 'nav-link'%>
+			      </li>
+			    <% end %>
+			  <% end %>
+	    </ul>
+	  </div>
+	</nav>
+</div>

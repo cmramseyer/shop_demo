@@ -1,14 +1,9 @@
-<p> Results for: <%= @keywords %></p>
+<div class="alert alert-primary text-center">Results for: <%= @keywords %></div>
 
-<div class="col-sm-3">
-	<h3>Categories</h3>
-	<%= render partial: 'filters', locals: {search: @search, objects: @categories, object_key: :category_name, opts: @opts} %>
-</div>
+<%= render partial: '/results/sidebar', locals: { title: 'Categories', search: @search, objects: @categories, object_key: :category_name, opts: @opts} %>
 
-<div class="col-sm-3">
-	<h3>Brands</h3>
-	<%= render partial: 'filters', locals: {search: @search, objects: @brands, object_key: :brand, opts: @opts} %>
-</div>
+<%= render partial: '/results/sidebar', locals: { title: 'Brands', search: @search, objects: @brands, object_key: :brand, opts: @opts} %>
+
 
 
 <table class="table">
