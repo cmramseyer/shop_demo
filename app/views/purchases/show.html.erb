@@ -1,9 +1,4 @@
-<h2><%= @purchase.user.email %></h2>
-<h6><%= @purchase.product.name %></h6>
-<p><%= @purchase.quantity %></p>
-<p><%= number_to_currency(@purchase.amount) %></p>
-
-<p><%= @purchase.purchase_status %></p>
+<%= render partial: 'purchase_info', locals: { purchase: @purchase} %>
 
 <% if @purchase.done? %>
 	<%= render partial: 'payment_info', locals: { purchase: @purchase } %>

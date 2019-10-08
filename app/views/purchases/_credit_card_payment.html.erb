@@ -1,5 +1,5 @@
-<table>
-	<thead>
+<table class="table table-sm">
+	<thead class="thead-dark">
 		<tr>
 			<th>Number</th>
 			<th>Code</th>
@@ -17,14 +17,27 @@
 	</tbody>
 </table>
 
-<%= form_with url: purchase_check_credit_card_amount_index_path(purchase), method: :get, remote: true do |form| %> 
-	<%= form.text_field :number %>
-	<%= form.text_field :code %>
-	<%= form.text_field :amount, value: purchase.amount, readonly: true %>
-	<%= form.submit "Check" %>
-	<%= form.submit "Purchase" %>
+<%= form_with url: purchase_check_credit_card_amount_index_path(purchase), method: :get, remote: true do |form| %>
+
+	<div class="form-row">
+	    <div class="col-md-4 mb-3">
+	      <%= form.label :number %>
+				<%= form.text_field :number, class: 'form-control' %>
+	    </div>
+	    <div class="col-md-4 mb-3">
+	      <%= form.label :code %>
+				<%= form.text_field :code, class: 'form-control' %>
+	    </div>
+	    <div class="col-md-4 mb-3">
+	      <%= form.label :amount %>
+	      <%= form.text_field :amount, value: purchase.amount, readonly: true, class: 'form-control' %>
+	    </div>
+	  </div>
+
+	<%= form.submit "Check", class: 'btn btn-primary' %>
+	<%= form.submit "Purchase", class: 'btn btn-success' %>
 <% end %>
 
 <h4>Api Response</h4>
-<div id="check-credit-card-message"></div>
+<textarea readonly id="check-credit-card-message" class="api-response-text" cols="100" rows="3"></textarea>
 
