@@ -17,7 +17,7 @@
   end
 
   def overview
-    link_to @product.description_overview, product_path, data: {toogle: 'tooltip', placement: 'top'}, title: @product.description
+    link_to @product.description_overview, product_path
   end
 
   def product_path
