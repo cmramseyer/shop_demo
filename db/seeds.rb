@@ -22,7 +22,7 @@ john = User.find_by_email('user_john@shopdemo.com')
 alice = User.find_by_email('user_alice@shopdemo.com')
 rose = User.find_by_email('user_rose@shopdemo.com')
 
-Category.create!([{name: 'TV'}, {name: 'Monitor'}, {name: 'Smartphone'}, {name: 'Notebook'}, {name: 'PC Accessories'}])
+Category.create!([{name: 'TV', icon_name: 'fa-tv'}, {name: 'Monitor', icon_name: 'fa-desktop'}, {name: 'Smartphone', icon_name: 'fa.mobile-alt'}, {name: 'Notebook', icon_name: 'fa-laptop'}, {name: 'PC Accessories', icon_name: 'fa-keyboard'}])
 
 category_tv = Category.find_by_name("TV")
 category_monitor = Category.find_by_name("Monitor")

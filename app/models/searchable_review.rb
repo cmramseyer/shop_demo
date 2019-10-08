@@ -9,7 +9,7 @@ class SearchableReview
   end
 
   def type
-    "Review"
+    "<i class='fa fa-star fa-3x'></i>".html_safe
   end
 
   def title

@@ -9,7 +9,7 @@
   end
 
   def type
-    "Product"
+    "<i class='fa #{@product.category_icon_name} fa-3x'></i>".html_safe
   end
 
   def title

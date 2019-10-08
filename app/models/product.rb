@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
 
-  delegate :name, to: :category, prefix: true
+  delegate :name, :icon_name, to: :category, prefix: true
 
   after_commit do
     __elasticsearch__.index_document

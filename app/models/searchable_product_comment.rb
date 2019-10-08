@@ -9,10 +9,11 @@ class SearchableProductComment
   end
 
   def type
-    "Comment"
+    "<i class='far fa-comment fa-3x'></i>".html_safe
   end
 
   def title
+    "by #{@product_comment.user.email}"
   end
 
   def overview
