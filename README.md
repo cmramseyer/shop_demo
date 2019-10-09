@@ -1,6 +1,11 @@
 # Shop Demo App
 
-This is a demo App. It has an autocomplete search feature to look for products, user reviews and user comments, developed using Elasticsearch. The app simulates a payment process through an external credit card API. [Code here](https://github.com/cmramseyer/fake_credit_card_api). [Hosted here](http://162.243.107.4:8001). The API communication is performed through a gem. [Code here](https://github.com/cmramseyer/fake_credit_card_api_gem).
+This is a demo App. It has an autocomplete search feature to look for products, user reviews and user comments, developed using Elasticsearch. The app simulates a payment process through an external credit card API. [Code here](https://github.com/cmramseyer/fake_credit_card_api). [Hosted here](http://162.243.107.4:8001). The API communication is performed through a gem. [Code here](https://github.com/cmramseyer/fake_credit_card_api_gem).  
+  
+[Link to demo](http://http://18.188.26.246/)  
+User: linkedin@shopdemo.com  
+Password: linkedin  
+
 
 # Install
 
