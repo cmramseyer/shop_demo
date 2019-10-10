@@ -57,7 +57,10 @@ gem 'draper'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.8'
+  # using 4-0-dev in order to solve the 'get :index' error in controller specs
+  # see http://jessehouse.com/blog/2019/06/19/actionview-template-error-wrong-number-of-arguments-given-2/
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails', branch: '4-0-dev'
+  # gem 'rspec-rails', '~> 3.8'
   gem 'rspec_junit_formatter'
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 4.0.1'
