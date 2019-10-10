@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Search, type: :model do
+RSpec.describe Search, type: :model, elasticsearh: true do
   it 'test search' do
     search_query = SearchQuery.new('apple', {})
     elastic_records = search_query.records

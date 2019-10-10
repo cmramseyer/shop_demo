@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe HomeController, type: :controller do
+RSpec.describe HomeController, type: :controller, elasticsearch: true do
 
   it 'GET index returns 200' do
     user = users(:basic_user)

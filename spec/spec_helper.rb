@@ -54,7 +54,7 @@ RSpec.configure do |config|
 
   # es_params = { port: 9250, number_of_nodes: 1, network_host: 'localhost', cluster_name: 'circleci-elasticsearch', command: '/usr/share/elasticsearch/bin/elasticsearch' }
 
-  config.before :suite do
+  config.before :each, elasticsearch: true do
 
     ActiveRecord::Base.descendants.each do |model|
       if model.respond_to?(:__elasticsearch__)
