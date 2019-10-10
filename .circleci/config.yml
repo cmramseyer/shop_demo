@@ -5,8 +5,10 @@ jobs:
       - image: circleci/ruby:2.6.3-stretch-node-browsers
         environment:
           RAILS_ENV: test
-          POSTGRES_USER: ubuntu
-          POSTGRES_DB: shop_demo_test
+          PG_TEST_HOST: localhost
+          PG_TEST_PORT: 5432
+          PG_TEST_DATABASE: shop_demo_test
+          PG_TEST_USERNAME: ubuntu
           # PG_TEST_HOST: ${PG_TEST_HOST}
           # PG_TEST_PORT: ${PG_TEST_PORT}
           # PG_TEST_DATABASE: ${PG_TEST_DATABASE}
@@ -27,6 +29,7 @@ jobs:
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: shop_demo_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
       # Download and cache dependencies
