@@ -6,7 +6,8 @@ class ProductComment < ApplicationRecord
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing
-  include Elasticsearch::Model::Callbacks unless $skip_elasticsearch_callbacks
+  include Elasticsearch::Model::Callbacks
+  index_name [Rails.env, 'product_comments'].join('_')
 
   after_commit do
     __elasticsearch__.index_document

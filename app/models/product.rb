@@ -9,6 +9,8 @@ class Product < ApplicationRecord
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
 
+  index_name [Rails.env, 'products'].join('_')
+
   delegate :name, :icon_name, to: :category, prefix: true
 
   after_commit do
