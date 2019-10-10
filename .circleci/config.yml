@@ -58,10 +58,12 @@ jobs:
       - run:
           name: Elasticsearch setup
           command: |
+            bundle exec rake elastic:delete_index RAILS_ENV=test
             bundle exec rake elastic:create_index RAILS_ENV=test
             bundle exec rake elastic:import RAILS_ENV=test
             export PATH="/usr/share/elasticsearch/bin/:$PATH"
             curl "localhost:9250/_nodes/settings?pretty=true"
+            curl "localhost:9250/test_products/_count"
       - run:
           name: Debugging Capybara/Selenium
           command: |
