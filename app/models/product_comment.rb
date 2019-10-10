@@ -6,7 +6,7 @@ class ProductComment < ApplicationRecord
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing
-  include Elasticsearch::Model::Callbacks
+  include Elasticsearch::Model::Callbacks unless $skip_elasticsearch_callbacks
 
   after_commit do
     __elasticsearch__.index_document

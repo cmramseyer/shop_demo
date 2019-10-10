@@ -8,7 +8,7 @@ class Review < ApplicationRecord
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing
-  include Elasticsearch::Model::Callbacks
+  include Elasticsearch::Model::Callbacks unless $skip_elasticsearch_callbacks
 
   delegate :name, :category_name, to: :product, prefix: true
 

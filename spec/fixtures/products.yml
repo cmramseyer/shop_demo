@@ -1,34 +1,34 @@
-product_1:
+product_a:
   name: 'LG OLEDB8P'
-  description: 'OLED TVs are the picture quality kings, but they're not cheap.'
+  description: "OLED TVs are the picture quality kings, but they're not cheap."
   category: category_tv
   price: 1500
   brand: 'LG'
 
 product_2:
   name: 'TCL 6'
-  description: 'No TV I've ever tested offers this much picture quality for this little cash.'
+  description: "No TV I've ever tested offers this much picture quality for this little cash."
   category: category_tv
   price: 1349.99
   brand: 'TCL'
 
 product_3:
   name: 'HP Spectre x360 (2019)'
-  description: 'HP's stylish 13-inch x360 is ready to take you from meeting to meeting with a flight in between.'
+  description: "HP's stylish 13-inch x360 is ready to take you from meeting to meeting with a flight in between."
   category: category_laptop
   price: 900
   brand: 'HP'
 
 product_4:
   name: 'Apple MacBook Pro with Touch Bar (15-inch)'
-  description: 'Apple's top 15-inch laptop gets major internal upgrades.'
+  description: "Apple's top 15-inch laptop gets major internal upgrades."
   category: category_laptop
   price: 2200
   brand: 'Apple'
 
 product_5:
   name: 'Apple iPhone 11'
-  description: 'New cameras, longer battery life, Night Mode, a goofy selfie feature and a price drop. That's a respectable upgrade list.'
+  description: "New cameras, longer battery life, Night Mode, a goofy selfie feature and a price drop. That's a respectable upgrade list."
   category: category_smartphone
   price: 699
   brand: 'Apple'
