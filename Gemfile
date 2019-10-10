@@ -60,6 +60,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'rspec_junit_formatter'
   gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 4.0.1'
+  gem 'brakeman'
+  gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -72,9 +77,6 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end

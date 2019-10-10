@@ -6,6 +6,9 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'devise'
+
+require "capybara/rspec"
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -35,7 +38,7 @@ RSpec.configure do |config|
 
   # login_as method
   config.include Devise::Test::ControllerHelpers, type: :controller
-  #config.include Warden::Test::Helpers
+  config.include Warden::Test::Helpers
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -67,3 +70,18 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+Capybara.register_driver :desktop do |app|
+  require 'selenium/webdriver'
+
+  # toggle on/off chrome headless
+  # commenting/uncommenting the next lines
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu window-size=1920,1080])
+  # options = Selenium::WebDriver::Chrome::Options.new
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome,
+    options: options)
+
+end
+
+Capybara.javascript_driver = :headless_chrome

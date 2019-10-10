@@ -13,6 +13,9 @@
 # it.
 #
 
+require 'database_cleaner'
+require 'support/database_cleaner'
+
 require 'elasticsearch/extensions/test/cluster'
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

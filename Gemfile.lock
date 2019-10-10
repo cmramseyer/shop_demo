@@ -96,6 +96,7 @@ GEM
       elasticsearch-rails (< 8)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
+    brakeman (4.6.1)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.25.0)
@@ -245,6 +246,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 6.0.0.rc1)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.4)
+      actionpack (>= 5.0.1.x)
+      actionview (>= 5.0.1.x)
+      activesupport (>= 5.0.1.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -317,6 +322,8 @@ GEM
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.11.2)
       faraday (>= 0.7.6, < 1.0)
+    shoulda-matchers (4.0.1)
+      activesupport (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -369,8 +376,9 @@ DEPENDENCIES
   activeadmin
   bonsai-elasticsearch-rails (~> 7)
   bootsnap (>= 1.4.2)
+  brakeman
   byebug
-  capybara (>= 2.15)
+  capybara
   database_cleaner
   devise
   dotenv-rails
@@ -388,11 +396,13 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rails (~> 6.0.0.rc1)
+  rails-controller-testing
   rspec-rails (~> 3.8)
   rspec_junit_formatter
   sass-rails (~> 5)
   selenium-webdriver
   sentry-raven
+  shoulda-matchers (~> 4.0.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
