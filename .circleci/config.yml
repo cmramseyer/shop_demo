@@ -4,7 +4,12 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node-browsers
         environment:
-          # RAILS_ENV: test
+          RAILS_ENV: test
+          PG_TEST_HOST: localhost
+          PG_TEST_PORT: 5432
+          PG_TEST_DATABASE: shop_demo_test
+          PG_TEST_USERNAME: ubuntu
+          CIRCLECI_ENV: circleci
           # PG_TEST_HOST: ${PG_TEST_HOST}
           # PG_TEST_PORT: ${PG_TEST_PORT}
           # PG_TEST_DATABASE: ${PG_TEST_DATABASE}
@@ -21,6 +26,11 @@ jobs:
             - network.host: 127.0.0.1
             - http.port: 9250
             - discovery.type: single-node
+      - image: circleci/postgres:9.6
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: shop_demo_test
+          POSTGRES_PASSWORD: ""
     steps:
       - checkout
       # Download and cache dependencies
@@ -48,17 +58,12 @@ jobs:
       - run:
           name: Elasticsearch setup
           command: |
+            bundle exec rake elastic:delete_index RAILS_ENV=test
             bundle exec rake elastic:create_index RAILS_ENV=test
             bundle exec rake elastic:import RAILS_ENV=test
             export PATH="/usr/share/elasticsearch/bin/:$PATH"
-            cd /usr/share/elasticsearch/bin/ && ls -l
-            cd /usr/share/elasticsearch/ && ls -l
-            cd /usr/share/ && ls -l
-            cd /usr/local/ && ls -l
-            cd /etc/ && ls -l
-            cd /var/run/ && ls -l
-            cd /var/log/ && ls -l
             curl "localhost:9250/_nodes/settings?pretty=true"
+            curl "localhost:9250/test_products/_count"
       - run:
           name: Debugging Capybara/Selenium
           command: |
@@ -79,7 +84,7 @@ jobs:
                             --format progress \
                             $TEST_FILES
       # Security analysis
-      #- run: bundle exec brakeman
+      - run: bundle exec brakeman
 
   deploy-dev:
     machine:

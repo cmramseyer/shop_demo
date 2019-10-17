@@ -1,0 +1,24 @@
+comment_1:
+  product: product_1
+  user: user_john
+  text: 'Awesome product. Really worth it!'
+
+comment_2:
+  product: product_1
+  user: user_rose
+  text: 'Love the sound quality!'
+
+comment_3:
+  product: product_2
+  user: user_john
+  text: 'This TV is great for gaming, high quality sound. Love this product!'
+
+comment_4:
+  product: product_2
+  user: user_rose
+  text: 'I am just waiting for black friday! I want this TV so much'
+
+comment_5:
+  product: product_3
+  user: user_john
+  text: "this laptop is shit, don't waste money"

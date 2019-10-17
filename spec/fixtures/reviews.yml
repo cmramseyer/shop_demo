@@ -1,11 +1,45 @@
 review_1:
-  title: 'Sony Last Technology Products'
-  content: 'The best television in the mid-range category is the Sony X900F. It has an impressive picture quality'
+  title: 'LG OLEDB8P series review'
+  content: |
+    For people who want the best picture they can afford, stretching the budget to get LG's B8 OLED is pretty tempting.
+    It has image quality that's basically as good as any other OLED TV, for less.
+    And that picture is still better than any non-OLED TV we've ever reviewed.'
   product: product_1
-  user: admin_user
+  user: jen
 
 review_2:
-  title: 'The best LG Monitor for gaming'
-  content: 'The LG 27UK650-W is a very good 27-inch IPS LCD monitor with HDR support'
+  title: 'TCL 6 series (2018 Roku TV) review'
+  content: |
+    More than a year after I first reviewed it, the TCL 6 series is still the best TV for the money you can buy.
+    No TV in its price range can beat it, and that includes new 2019 models like the Vizio M8 series I recently reviewed.
+    At this point the 6 series is heavily discounted from its initial price, making it a better value than ever.
+    The 65-inch model regularly gets down to $700, and the 55-inch version down to just $500.
+    Even the massive 75-inch version of the 6 series is a bargain at $1,400.
+    Those prices might be different by the time you read this, however. 
   product: product_2
-  user: admin_user
+  user: user_zack
+
+review_3:
+  title: 'Suited up for this review'
+  content: |
+    It's rare that a laptop I've tested made me feel underdressed while using it.
+    Actually, I take that back. I've never felt underdressed while using a laptop until I started using the HP Spectre x360.
+    Maybe that's a bit of an exaggeration, but HP's premium two-in-one did make me feel like I should be suited up while I worked or,
+    at the very least, that I should tuck in my shirt. Wrapped in metal with gem-cut edges (as opposed to the all-leather Spectre Folio),
+    the 13.3-inch convertible weighs less than 3 pounds (1.3 kg) and is only 14.5 mm thick, so it barely registers that it's in your bag.
+  product: product_3
+  user: user_zack
+
+review_4:
+  title: 'Apple did it again'
+  content: |
+    On paper, it looked like an impressive, if predictable, set of internal component upgrades.
+    Apple's 13-inch and 15-inch Touch Bar MacBook Pro models would get new eighth-gen Intel processors, more storage and RAM options,
+    a color-temperature-sensing True Tone screen and other tweaks -- all nice improvements over a ho-hum 2017 update.
+    At the same time, the slim unibody aluminum design would remain unchanged since its last design overhaul in late 2016,
+    keeping features both loved (the giant track pad) and not-so-loved (the slim-travel keyboard, the USB-C-only connections).
+    If anything, the expensive add-on option for one of Intel's new six-core Core i9 processors would appeal to pro-level users,
+    such as video editors and 3D artists,
+    who may be starting to feel that Apple isn't keeping up with their ever-expanding needs for high-end gear.
+  product: product_4
+  user: user_zack

@@ -1,7 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Search, type: :model do
+RSpec.describe Search, type: :model, elasticsearh: true do
   it 'test search' do
-    records = Search.with_keywords('tv')
+    search_query = SearchQuery.new('apple', {})
+    elastic_records = search_query.records
+    categories = search_query.aggregations.categories.buckets
+    brands = search_query.aggregations.brands.buckets
+    records = elastic_records.map { |r| Searchable.create(r) }
+
+    expect(records.any?).to be true
   end
 end

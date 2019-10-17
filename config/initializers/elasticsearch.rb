@@ -1,3 +1,8 @@
 if Rails.env.test?
-  Elasticsearch::Model.client = Elasticsearch::Client.new(host: 'localhost:9250', logger: Logger.new(STDOUT), log: true)
+  if ENV['CIRCLECI_ENV'] == 'circleci'
+    port = 9250
+  else
+    port = 9200
+  end
+  Elasticsearch::Model.client = Elasticsearch::Client.new(host: "localhost:#{port}", logger: Logger.new(STDOUT), log: true)
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ResultsController, type: :controller do
+RSpec.describe ResultsController, type: :controller, elasticsearch: true do
 
   it 'GET results returns 200' do
     user = users(:basic_user)

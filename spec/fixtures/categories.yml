@@ -1,5 +1,11 @@
 category_tv:
   name: 'TV'
+  icon_name: 'fa-tv'
 
-category_monitor:
-  name: 'Monitor'
+category_laptop:
+  name: 'Laptop'
+  icon_name: 'fa-laptop'
+
+category_smartphone:
+  name: 'Smartphone'
+  icon_name: 'fa-phone'

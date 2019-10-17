@@ -9,6 +9,7 @@ class Review < ApplicationRecord
   include Elasticsearch::Model
   # ES temporarily disabled for testing
   include Elasticsearch::Model::Callbacks
+  index_name [Rails.env, 'reviews'].join('_')
 
   delegate :name, :category_name, to: :product, prefix: true
 

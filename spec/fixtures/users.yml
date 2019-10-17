@@ -1,3 +1,19 @@
 basic_user:
   email: 'basic@basic.com'
   role: 'basic'
+
+user_jen:
+  email: 'jen@shopdemo.com'
+  role: 'basic'
+
+user_zack:
+  email: 'zack@shopdemo.com'
+  role: 'basic'
+
+user_john:
+  email: 'john@shopdemo.com'
+  role: 'basic'
+
+user_rose:
+  email: 'rose@shopdemo.com'
+  role: 'basic'
