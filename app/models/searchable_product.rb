@@ -23,4 +23,8 @@
   def product_path
     url_helpers.product_path(@product)
   end
+
+  def average_rating
+    @product.decorate.average_rating_badge
+  end
 end

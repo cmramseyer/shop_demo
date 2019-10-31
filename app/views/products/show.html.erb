@@ -8,10 +8,7 @@
 		  	<h4 class="card-title">
 		  		<%= @product.name %>
 		  		<span class="float-right">
-				    <span class="badge badge-primary">
-				    	<i id="rating-star" class="fa fa-star"></i>
-				    	<span id="product-average-rating"><%= @product.decorate.average_rating %></span>
-				    </span>
+				    <%= @product.decorate.average_rating_badge %>
 					</span>
 				</h4>
 		  </div>

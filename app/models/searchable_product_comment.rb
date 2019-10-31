@@ -23,4 +23,7 @@ class SearchableProductComment
   def product_path
     url_helpers.product_path(@product_comment.product)
   end
+
+  def average_rating
+  end
 end

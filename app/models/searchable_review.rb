@@ -23,4 +23,7 @@ class SearchableReview
   def review_path
     url_helpers.review_path(@review)
   end
+
+  def average_rating
+  end
 end
