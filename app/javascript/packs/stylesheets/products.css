@@ -38,3 +38,7 @@ body {
 html {
 	position: relative;
 }
+
+#rating-star {
+	color: rgb(243, 156, 18) !important;
+}

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :product_comments
     resources :purchases
+    resources :rate, only: [:create]
   end
   resources :reviews
   resources :purchases do

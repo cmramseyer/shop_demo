@@ -1,0 +1,3 @@
+$('div#rateYo').after("<span id='rating-message'>Thank you</span>");
+$('span#rating-message').fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500, function() { $(this).remove(); });
+$('span#product-average-rating').html('<%= @average_rating %>');

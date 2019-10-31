@@ -15,6 +15,7 @@ require("jquery")
 require("bootstrap")
 require("popper.js")
 require("jquery.autocomplete")
+require("rateyo")
 
 import('./search')
 import('./general')

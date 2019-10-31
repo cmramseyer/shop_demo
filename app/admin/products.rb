@@ -19,6 +19,9 @@ permit_params :name, :description, :price, :category_id, :brand
     column :description
     column :category
     column :price
+    column "Avg. Rtg." do |product|
+      product.decorate.average_rating
+    end
     column :created_at
     actions
   end

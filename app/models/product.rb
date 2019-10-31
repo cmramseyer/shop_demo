@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :reviews
   has_many :product_comments
+  has_many :ratings
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing
@@ -60,5 +61,10 @@ class Product < ApplicationRecord
 
   def index_type
     "Product"
+  end
+
+  def average_rating
+    return 0 if ratings.empty?
+    ratings.sum(&:rating) / ratings.length.to_f
   end
 end
