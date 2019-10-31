@@ -15,6 +15,7 @@ class SearchQuery
   def query(keywords, opts)
     category_name = opts.fetch(:category_name, "")
     brand = opts.fetch(:brand, "*")
+    type = opts.fetch(:type, "*")
     {
       query: {
         function_score: { 
@@ -36,6 +37,9 @@ class SearchQuery
         },
         brands: {
             terms: { field: "brand" } 
+        },
+        types: {
+            terms: { field: "type" } 
         }
       }
     
@@ -54,7 +58,7 @@ class SearchQuery
   end
 
   def lala(opts)
-    return {} unless opts[:category_name] || opts[:brand]
+    return {} unless opts[:category_name] || opts[:brand] || opts[:type]
     
     filter = { filter: [] }
     opts.keys.each do |key|
@@ -84,6 +88,9 @@ class SearchQuery
         },
         brands: {
             terms: { field: "brand" } 
+        },
+        types: {
+            terms: { field: "type" } 
         }
       }
     }

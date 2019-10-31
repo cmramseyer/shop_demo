@@ -4,6 +4,7 @@
 	<div class="col-sm-2">
 		<%= render partial: '/results/sidebar', locals: { title: 'Categories', search: @search, objects: @categories, object_key: :category_name, opts: @opts} %>
 		<%= render partial: '/results/sidebar', locals: { title: 'Brands', search: @search, objects: @brands, object_key: :brand, opts: @opts} %>
+        <%= render partial: '/results/sidebar', locals: { title: 'Types', search: @search, objects: @types, object_key: :type, opts: @opts} %>
 	</div>
 
 
