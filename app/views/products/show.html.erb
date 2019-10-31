@@ -57,6 +57,25 @@
 	    });
     }
   });
+
+  $(".comment-like").rateYo({
+    rating: 0,
+    fullStar: true,
+    onSet: function (rating, rateYoInstance) {
+    	const productId = rateYoInstance.node.dataset.productId;
+      $.ajax({
+	      type: 'POST',
+	      dataType: 'script',
+	      data: {rating: rating},
+	      url: '/products/'+ productId + '/rate',
+	      cache: false,
+	    })
+	    .done(function(data){
+	    })
+	    .fail(function(){
+	    });
+    }
+  });
  
 });
 </script>

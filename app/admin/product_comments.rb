@@ -5,6 +5,7 @@ ActiveAdmin.register ProductComment do
     column :product
     column :user
     column :text
+    column :likes, sortable: true
     column "Alert?" do |product_comment|
       product_comment.include_alert_word?
     end
@@ -17,6 +18,7 @@ ActiveAdmin.register ProductComment do
       row :product
       row :user
       row :text
+      row :likes
     end
   end
 

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :purchases
     resources :rate, only: [:create]
   end
+
+  resources :product_comments do
+    resources :like, only: [:create]
+  end
   resources :reviews
   resources :purchases do
     resources :check_credit_card_amount

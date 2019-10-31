@@ -76,4 +76,8 @@ class ProductComment < ApplicationRecord
     "Comment"
   end
 
+  def like!
+    update_attributes(likes: likes + 1)
+  end
+
 end

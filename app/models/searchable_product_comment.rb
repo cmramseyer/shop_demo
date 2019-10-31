@@ -25,5 +25,6 @@ class SearchableProductComment
   end
 
   def average_rating
+    @product_comment.decorate.likes_badge
   end
 end

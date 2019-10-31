@@ -5,4 +5,10 @@
   <div class="card-body">
     <p class="card-text"><%= comment.text %></p>
   </div>
+  <div class="card-footer">
+    <p class="card-text">
+      <%= link_to "<span class='badge badge-primary'><i class='fa fa-thumbs-up'></i> Like</span>".html_safe, product_comment_like_index_path(comment), remote: true, method: :post %>
+      <span data-product-comment-id="<%= comment.id %>" class="likes-legend"><%= comment.decorate.likes_legend %></span>
+    </p>
+  </div>
 </div>
