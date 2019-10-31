@@ -38,6 +38,7 @@ class Product < ApplicationRecord
       indexes :product_description, analyzer: 'english', type: :text
       indexes :category_name, type: :keyword
       indexes :brand, type: :keyword
+      indexes :type, type: :keyword
       indexes :test, type: :text, analyzer: "autocomplete", search_analyzer: "standard"
     end
   end
@@ -48,11 +49,16 @@ class Product < ApplicationRecord
       product_description: description,
       category_name: category.try(:name),
       brand: brand,
-      test: name
+      test: name,
+      type: index_type
     }
   end
 
   def description_overview
     description.truncate_words(20)
+  end
+
+  def index_type
+    "Product"
   end
 end

@@ -60,6 +60,7 @@ class Review < ApplicationRecord
       indexes :review_user, analyzer: 'custom_english', type: :text
       indexes :review_product, analyzer: 'custom_english', type: :text
       indexes :review_product_category, analyzer: 'custom_english', type: :text
+      indexes :type, type: :keyword
     end
   end
 
@@ -69,7 +70,8 @@ class Review < ApplicationRecord
       review_content: content,
       review_user: user.try(:email),
       review_product: product.try(:name),
-      review_product_category: product.try(:category).try(:name)
+      review_product_category: product.try(:category).try(:name),
+      type: index_type
     }
   end
 
@@ -79,5 +81,9 @@ class Review < ApplicationRecord
 
   def text_for_alert_check
     content
+  end
+
+  def index_type
+    "Review"
   end
 end

@@ -54,6 +54,7 @@ class ProductComment < ApplicationRecord
       indexes :comment_product_name, type: :keyword
       indexes :comment_user, type: :keyword
       indexes :comment_text, analyzer: 'custom_english', type: :text
+      indexes :type, type: :keyword
     end
   end
 
@@ -61,13 +62,18 @@ class ProductComment < ApplicationRecord
     {
       comment_product_name: product.name,
       comment_user: user.email,
-      comment_text: text
+      comment_text: text,
+      type: index_type
     }
 
   end
 
   def text_for_alert_check
     text
+  end
+
+  def index_type
+    "Comment"
   end
 
 end
