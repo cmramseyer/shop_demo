@@ -28,6 +28,7 @@ jobs:
             - discovery.type: single-node
       - image: circleci/postgres:9.6
         environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
           POSTGRES_USER: ubuntu
           POSTGRES_DB: shop_demo_test
           POSTGRES_PASSWORD: ""
