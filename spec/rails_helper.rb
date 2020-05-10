@@ -76,8 +76,11 @@ Capybara.register_driver :desktop do |app|
 
   # toggle on/off chrome headless
   # commenting/uncommenting the next lines
-  options = Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu window-size=1920,1080])
-  # options = Selenium::WebDriver::Chrome::Options.new
+  if ENV['VIEW_BROWSER'] == 'true'
+    options = Selenium::WebDriver::Chrome::Options.new
+  else
+    options = Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu window-size=1920,1080])
+  end
 
   Capybara::Selenium::Driver.new(app, browser: :chrome,
     options: options)
