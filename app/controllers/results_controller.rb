@@ -3,9 +3,9 @@ class ResultsController < ApplicationController
     @search = Search.find(params[:search_id])
     @keywords = @search.keywords
 
-    set_opts_filters
+    @results_session = ResultsSession.new(session).set_session_values(params)
 
-    search_query = SearchQuery.new(@keywords, @opts)
+    search_query = SearchQuery.new(@keywords, @results_session.options)
     elastic_records = search_query.records
     @categories = search_query.aggregations.categories.buckets
     @brands = search_query.aggregations.brands.buckets
