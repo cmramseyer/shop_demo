@@ -19,6 +19,13 @@
 		  <div class="card-footer text-left">
 		  	Price: <%= number_to_currency(@product.price) %>
 		  </div>
+      <div class="card-footer text-left">
+        <% if @session_cart.has_product?(@product) %>
+          You have already this product in the shopping cart! <%= link_to "Go to the cart", session_cart_index_path, class: "btn btn-primary" %>
+        <% else %>
+          <%= @product.decorate.add_to_cart %>
+        <% end %>
+      </div>
 		  <div class="card-footer text-left">
 		  	<div id="rateYo" data-product-id="<%= @product.id %>"></div> 
 		  </div>

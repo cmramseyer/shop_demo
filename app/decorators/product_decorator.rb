@@ -14,4 +14,8 @@ class ProductDecorator < Draper::Decorator
     </span>".html_safe
   end
 
+  def add_to_cart
+    h.link_to "Add to cart", h.session_cart_index_path(product_id: object.id), class: "btn btn-primary", method: :post, remote: true
+  end
+
 end

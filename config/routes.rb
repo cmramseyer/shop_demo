@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :rate, only: [:create]
   end
 
+  resources :session_cart, only: [:index, :create]
+  resources :clean_session_cart, only: [:create]
+
   resources :product_comments do
     resources :like, only: [:create]
   end
