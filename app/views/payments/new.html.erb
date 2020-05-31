@@ -44,7 +44,7 @@
 <textarea readonly id="check-credit-card-message" class="api-response-text" cols="100" rows="3"></textarea>
 
 
-<%= form_with url: order_payments_path(@order), method: :post do |form| %>
+<%= form_with url: order_payments_path(@order), method: :post, html: { id: "payment-form" } do |form| %>
 
   <div class="form-row">
       <div class="col-md-4 mb-3">
