@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def init_session_cart
-    @session_cart = SessionCart.new(session)
+    @session_cart = SessionCart.new(session, current_user)
   end
 end

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   resources :results, only: [:index]
   resources :products do
     resources :product_comments
-    resources :purchases
     resources :rate, only: [:create]
+  end
+
+  resources :orders do
+    resources :payments
   end
 
   resources :session_cart, only: [:index, :create]
@@ -17,9 +20,7 @@ Rails.application.routes.draw do
     resources :like, only: [:create]
   end
   resources :reviews
-  resources :purchases do
-    resources :check_credit_card_amount
-  end
+  resources :check_credit_card_amount
 
   resources :suggestions, only: [:index]
 

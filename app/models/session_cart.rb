@@ -1,6 +1,8 @@
 class SessionCart
-  def initialize(session)
+  attr_reader :current_user
+  def initialize(session, current_user)
     @session = session
+    @current_user = current_user
     @session[:product_ids] ||= []
   end
 
@@ -26,5 +28,9 @@ class SessionCart
 
   def clean!
     @session[:product_ids] = []
+  end
+
+  def empty?
+    products_size == 0
   end
 end

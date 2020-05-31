@@ -1,7 +1,0 @@
-<%= render partial: 'purchase_info', locals: { purchase: @purchase} %>
-
-<% if @purchase.done? %>
-	<%= render partial: 'payment_info', locals: { purchase: @purchase } %>
-<% else %>
-	<%= render partial: 'credit_card_payment', locals: { purchase: @purchase, credit_cards: @credit_cards } %>
-<% end %>

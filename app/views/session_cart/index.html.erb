@@ -1,9 +1,12 @@
 <div class="row">
   <div class="col-sm-12">
 
-    <h4 class="product-title">Your current cart</h4>
-
-    <%= link_to "Clean up my cart", clean_session_cart_index_path, class: "btn btn-danger", method: :post %>
+    <% if @session_cart.empty? %>
+      <h4 class="product-title">Your cart is empty</h4>
+    <% else %>
+      <h4 class="product-title">Your current cart</h4>
+      <%= link_to "Clean up my cart", clean_session_cart_index_path, class: "btn btn-danger", method: :post %>
+    <% end %>
 
     <table class="table table-sm table-striped table-bordered table-hover">
       <thead class="thead-dark">
@@ -28,6 +31,8 @@
         </tr>
       </tbody>
     </table>
+
+    <%= link_to "Place the order", new_order_path, class: "btn btn-primary" unless @session_cart.empty? %>
   </div>
 
 </div>

@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :reviews
   has_many :product_comments
   has_many :ratings
+  has_and_belongs_to_many :orders
 
   include Elasticsearch::Model
   # ES temporarily disabled for testing

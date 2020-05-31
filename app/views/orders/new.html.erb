@@ -1,0 +1,11 @@
+<div class="card card-purchase">
+  <div class="card-header">
+    <p class="card-text"><strong><%= @order_info.user.email %></strong> ordered <strong>products</strong></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Details</h5>
+    <p class="card-text">Total amount: <%= number_to_currency(@order_info.total_amount) %></p>
+  </div>
+</div>
+
+<%= link_to "Confirm order", orders_path, class: "btn btn-primary", method: :post %>
