@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :payments
   end
 
+  resources :users do
+    resources :my_orders
+  end
+
   resources :session_cart, only: [:index, :create]
   resources :clean_session_cart, only: [:create]
 

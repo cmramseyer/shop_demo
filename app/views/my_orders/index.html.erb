@@ -1,0 +1,22 @@
+<h2>My Orders</h2>
+
+<table class="table table-sm table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Order</th>
+      <th>Total amount</th>
+      <th>Order status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="tbody-results">
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.total_amount %></td>
+        <td><%= order.order_status %></td>
+        <td><%= order.decorate.link_to_view %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
