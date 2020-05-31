@@ -5,6 +5,7 @@ class MyOrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    authorize @order
     @payment = @order.payment || NilPayment.new
   end
 end

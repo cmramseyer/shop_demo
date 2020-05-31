@@ -2,6 +2,7 @@ class PaymentsController < ApplicationController
 
   def new
     @order = Order.find(params[:order_id])
+    authorize @order, :new_payment?
     @credit_cards = FakeCreditCardApiGem.index
   end
 

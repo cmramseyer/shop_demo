@@ -12,12 +12,19 @@
       <li class="nav-item">
         <a class="nav-link" href="<%= user_my_orders_path(current_user) %>">My Orders <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= session_cart_index_path %>">My Cart <span class="sr-only">(current)</span></a>
+      </li>
       <% if current_user.is_admin? %>
         <li class="nav-item">
           <a class="nav-link" href="/admin">Admin Panel</a>
         </li>
       <% end %>
+    <li class="nav-item">
+      <%= link_to "Log Out <span class='sr-only'>(current)</span>".html_safe, destroy_user_session_path(current_user), class: "nav-link", method: :delete %>
+    </li>
     </ul>
+
     <span class="navbar-text">
       Logged as <%= current_user.email %> &nbsp;&nbsp; 
     </span>
