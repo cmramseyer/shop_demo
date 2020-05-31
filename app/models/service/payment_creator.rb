@@ -10,8 +10,8 @@ module Service
     def call
       ActiveRecord::Base.transaction do
         make_payment
-        Payment.create!(order: @order, credit_card_number: @number)
-        @order.update_attribute :order_status, "finished"
+        payment = Payment.create!(order: @order, credit_card_number: @number)
+        @order.update_attributes(order_status: "finished", payment: payment)
       end
       true
     rescue Exception => e
