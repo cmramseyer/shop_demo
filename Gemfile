@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+gem 'rack-cors'
+
 gem 'devise'
 
 gem 'activeadmin'
