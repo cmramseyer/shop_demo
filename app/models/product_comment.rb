@@ -9,6 +9,8 @@ class ProductComment < ApplicationRecord
   include Elasticsearch::Model::Callbacks
   index_name [Rails.env, 'product_comments'].join('_')
 
+  delegate :email, to: :user, prefix: true
+
   after_commit do
     __elasticsearch__.index_document
   end

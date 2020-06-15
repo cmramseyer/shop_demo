@@ -105,6 +105,7 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.13)
     bindex (0.7.0)
+    blueprinter (0.23.4)
     bonsai-elasticsearch-rails (7.0.1)
       elasticsearch-model (< 8)
       elasticsearch-rails (< 8)
@@ -382,6 +383,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  blueprinter
   bonsai-elasticsearch-rails (~> 7)
   bootsnap (>= 1.4.2)
   brakeman

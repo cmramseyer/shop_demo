@@ -12,6 +12,7 @@ class Review < ApplicationRecord
   index_name [Rails.env, 'reviews'].join('_')
 
   delegate :name, :category_name, to: :product, prefix: true
+  delegate :email, to: :user, prefix: true
 
   after_commit do
     __elasticsearch__.index_document
