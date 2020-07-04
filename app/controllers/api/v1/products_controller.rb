@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ProductsController < ActionController::API
-      respond_to :json
+    class ProductsController < ApiController
       def index
         respond_with ProductBlueprint.render(Product.all, view: :full) 
       end

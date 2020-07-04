@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
 
 gem 'devise'
+gem 'jwt'
 
 gem 'activeadmin'
 gem 'pundit'

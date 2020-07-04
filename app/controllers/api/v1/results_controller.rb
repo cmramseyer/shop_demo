@@ -1,7 +1,6 @@
 module Api
   module V1
-    class ResultsController < ActionController::API
-      respond_to :json
+    class ResultsController < ApiController
       def index
         @keywords = params[:keywords]
         search_query = SearchQueryApi.new(@keywords)

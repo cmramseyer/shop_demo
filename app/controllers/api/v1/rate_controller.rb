@@ -1,7 +1,6 @@
 module Api
   module V1
-    class RateController < ActionController::API
-      respond_to :json
+    class RateController < ApiController
       def create
         @product = Product.find(params[:product_id])
         rating = params[:rating]
