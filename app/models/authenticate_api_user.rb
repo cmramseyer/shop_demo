@@ -1,6 +1,6 @@
 class AuthenticateApiUser
 
-  attr_reader :token
+  attr_reader :token, :user
 
   def initialize(email, password)
     @email = email
@@ -8,10 +8,10 @@ class AuthenticateApiUser
   end
 
   def call
-    user = User.find_by_email(@email)
-    raise ApiError.new "User not found" unless user
-    raise ApiError.new "Password invalid" unless user.valid_password?(@password)
-    @token = JsonWebToken.encode(user_id: user.id)
+    @user = User.find_by_email(@email)
+    raise ApiError.new "User not found" unless @user
+    raise ApiError.new "Password invalid" unless @user.valid_password?(@password)
+    @token = JsonWebToken.encode(user_id: @user.id)
     self
   end
 

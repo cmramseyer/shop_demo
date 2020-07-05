@@ -8,7 +8,7 @@ module Api
         auth = AuthenticateApiUser.new(login_params[:email], login_params[:password]).call
 
         if auth.token
-         render json: { auth_token: auth.token }
+         render json: { email: auth.user.email, user: "Carlos", auth_token: auth.token }
         else
          render json: { error: 'Something went wrong' }, status: :unauthorized
         end

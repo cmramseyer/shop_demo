@@ -12,7 +12,6 @@ module Api
       def json_request?
         request.format.json?
       end
-      # Use api_user Devise scope for JSON access
       def authenticate_request
         @current_user = AuthorizeApiRequest.new(request.headers).call
         render json: { error: 'Not Authorized' }, status: 401 unless @current_user
